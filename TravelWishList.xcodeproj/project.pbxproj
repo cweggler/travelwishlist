@@ -14,6 +14,7 @@
 		46206E3F222819F100F4C013 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46206E3D222819F100F4C013 /* LaunchScreen.storyboard */; };
 		46206E4A222819F100F4C013 /* TravelWishListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46206E49222819F100F4C013 /* TravelWishListTests.swift */; };
 		46206E55222819F100F4C013 /* TravelWishListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46206E54222819F100F4C013 /* TravelWishListUITests.swift */; };
+		46206E642228E79700F4C013 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46206E632228E79700F4C013 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		46206E50222819F100F4C013 /* TravelWishListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelWishListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46206E54222819F100F4C013 /* TravelWishListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelWishListUITests.swift; sourceTree = "<group>"; };
 		46206E56222819F100F4C013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46206E632228E79700F4C013 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46206E642228E79700F4C013 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				46206E48222819F100F4C013 /* TravelWishListTests */,
 				46206E53222819F100F4C013 /* TravelWishListUITests */,
 				46206E32222819EB00F4C013 /* Products */,
+				46206E622228E79600F4C013 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +127,14 @@
 				46206E56222819F100F4C013 /* Info.plist */,
 			);
 			path = TravelWishListUITests;
+			sourceTree = "<group>";
+		};
+		46206E622228E79600F4C013 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				46206E632228E79700F4C013 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
