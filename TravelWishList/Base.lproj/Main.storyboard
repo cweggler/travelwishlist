@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Places-->
         <scene sceneID="Qp9-HN-tmJ">
             <objects>
                 <tableViewController id="sBo-6i-iW2" sceneMemberID="viewController">
@@ -32,13 +32,13 @@
                             <outlet property="delegate" destination="sBo-6i-iW2" id="Tm6-xy-VPC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="tQ0-2E-F6e"/>
+                    <tabBarItem key="tabBarItem" title="Places" image="icons8-features-list-filled-50" id="tQ0-2E-F6e"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qbf-BF-W4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="994" y="958"/>
         </scene>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="uGP-1T-jwZ">
             <objects>
                 <viewController id="Q1p-b5-i7N" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
-                    <tabBarItem key="tabBarItem" title="Item" id="DON-71-pTA"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="icons8-world-map-50" id="DON-71-pTA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LX-ZX-NZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,4 +71,8 @@
             <point key="canvasLocation" x="993" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-features-list-filled-50" width="30" height="30"/>
+        <image name="icons8-world-map-50" width="30" height="30"/>
+    </resources>
 </document>
