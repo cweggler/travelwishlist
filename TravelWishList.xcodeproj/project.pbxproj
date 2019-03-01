@@ -15,6 +15,7 @@
 		46206E4A222819F100F4C013 /* TravelWishListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46206E49222819F100F4C013 /* TravelWishListTests.swift */; };
 		46206E55222819F100F4C013 /* TravelWishListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46206E54222819F100F4C013 /* TravelWishListUITests.swift */; };
 		46206E642228E79700F4C013 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46206E632228E79700F4C013 /* MapKit.framework */; };
+		467D6A8F22296A05007B497A /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D6A8E22296A05007B497A /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		46206E54222819F100F4C013 /* TravelWishListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelWishListUITests.swift; sourceTree = "<group>"; };
 		46206E56222819F100F4C013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46206E632228E79700F4C013 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		467D6A8E22296A05007B497A /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				46206E34222819EB00F4C013 /* AppDelegate.swift */,
 				46206E36222819EB00F4C013 /* ViewController.swift */,
+				467D6A8E22296A05007B497A /* Place.swift */,
 				46206E38222819EB00F4C013 /* Main.storyboard */,
 				46206E3B222819F100F4C013 /* Assets.xcassets */,
 				46206E3D222819F100F4C013 /* LaunchScreen.storyboard */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467D6A8F22296A05007B497A /* Place.swift in Sources */,
 				46206E37222819EB00F4C013 /* ViewController.swift in Sources */,
 				46206E35222819EB00F4C013 /* AppDelegate.swift in Sources */,
 			);
