@@ -16,6 +16,7 @@
 		46206E642228E79700F4C013 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46206E632228E79700F4C013 /* MapKit.framework */; };
 		4649D587222B2CA9000659E6 /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649D586222B2CA9000659E6 /* PlacesViewController.swift */; };
 		4649D589222B2EDD000659E6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649D588222B2EDD000659E6 /* MapViewController.swift */; };
+		4649D58B222B303A000659E6 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4649D58A222B303A000659E6 /* PlaceList.swift */; };
 		467D6A8F22296A05007B497A /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D6A8E22296A05007B497A /* Place.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		46206E632228E79700F4C013 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4649D586222B2CA9000659E6 /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		4649D588222B2EDD000659E6 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		4649D58A222B303A000659E6 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
 		467D6A8E22296A05007B497A /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				46206E34222819EB00F4C013 /* AppDelegate.swift */,
 				467D6A8E22296A05007B497A /* Place.swift */,
 				4649D588222B2EDD000659E6 /* MapViewController.swift */,
+				4649D58A222B303A000659E6 /* PlaceList.swift */,
 				46206E38222819EB00F4C013 /* Main.storyboard */,
 				46206E3B222819F100F4C013 /* Assets.xcassets */,
 				46206E3D222819F100F4C013 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4649D587222B2CA9000659E6 /* PlacesViewController.swift in Sources */,
+				4649D58B222B303A000659E6 /* PlaceList.swift in Sources */,
 				467D6A8F22296A05007B497A /* Place.swift in Sources */,
 				46206E35222819EB00F4C013 /* AppDelegate.swift in Sources */,
 				4649D589222B2EDD000659E6 /* MapViewController.swift in Sources */,
