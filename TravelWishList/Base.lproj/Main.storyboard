@@ -12,7 +12,7 @@
         <!--Places-->
         <scene sceneID="Qp9-HN-tmJ">
             <objects>
-                <tableViewController id="sBo-6i-iW2" sceneMemberID="viewController">
+                <tableViewController id="sBo-6i-iW2" customClass="PlacesViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y2Z-00-exY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,12 +41,15 @@
         <!--Map-->
         <scene sceneID="uGP-1T-jwZ">
             <objects>
-                <viewController id="Q1p-b5-i7N" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="wA1-3a-4Y6">
+                <viewController id="Q1p-b5-i7N" customClass="MapViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="luI-uF-jsW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="icons8-world-map-50" id="DON-71-pTA"/>
+                    <connections>
+                        <outlet property="mapView" destination="luI-uF-jsW" id="nQF-VW-5U2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LX-ZX-NZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,6 +61,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="agf-zG-7c4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wuN-kx-bso">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
