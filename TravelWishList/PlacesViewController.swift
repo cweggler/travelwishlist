@@ -10,4 +10,6 @@ import UIKit
 
 class PlacesViewController: UITableViewController {
     
+    //var placeModel: PlaceList!
+    
 }
