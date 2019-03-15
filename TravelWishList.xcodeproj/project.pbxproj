@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		461B60C9223BCD6A00814DC7 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B60C8223BCD6A00814DC7 /* PlaceCell.swift */; };
 		46206E35222819EB00F4C013 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46206E34222819EB00F4C013 /* AppDelegate.swift */; };
 		46206E3A222819EB00F4C013 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46206E38222819EB00F4C013 /* Main.storyboard */; };
 		46206E3C222819F100F4C013 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46206E3B222819F100F4C013 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		461B60C8223BCD6A00814DC7 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		46206E31222819EB00F4C013 /* TravelWishList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelWishList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46206E34222819EB00F4C013 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46206E39222819EB00F4C013 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				467D6A8E22296A05007B497A /* Place.swift */,
 				4649D588222B2EDD000659E6 /* MapViewController.swift */,
 				4649D58A222B303A000659E6 /* PlaceList.swift */,
+				461B60C8223BCD6A00814DC7 /* PlaceCell.swift */,
 				46206E38222819EB00F4C013 /* Main.storyboard */,
 				46206E3B222819F100F4C013 /* Assets.xcassets */,
 				46206E3D222819F100F4C013 /* LaunchScreen.storyboard */,
@@ -282,6 +285,7 @@
 				467D6A8F22296A05007B497A /* Place.swift in Sources */,
 				46206E35222819EB00F4C013 /* AppDelegate.swift in Sources */,
 				4649D589222B2EDD000659E6 /* MapViewController.swift in Sources */,
+				461B60C9223BCD6A00814DC7 /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
