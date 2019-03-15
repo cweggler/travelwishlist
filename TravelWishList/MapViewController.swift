@@ -10,13 +10,13 @@ import UIKit
 import MapKit
 
 class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    let locationManager = CLLocationManager()
+    let geoCoder = CLGeocoder()
+    var placeList: PlaceList!
     
     @IBOutlet var mapView: MKMapView!
     
-    let locationManager = CLLocationManager()
-    let geoCoder = CLGeocoder()
-    var placeModel: PlaceList! // This is showing as nil right now, figure out why
-    
+   
     override func loadView() {
         // set a MKMapView programmatically
         mapView = MKMapView()
@@ -54,7 +54,7 @@ class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMap
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeModel.count()
+        return placeList.count()
     }
     
     @objc func buttonClicked(sender: UIButton){
@@ -87,10 +87,16 @@ class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMap
             }
         })
             let newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
-       //Crash here
-        //self.placeModel.add(newPlace)
-        print(self.placeModel != nil)
-        
+       
+        print(newPlace)
+        if self.placeList == nil {
+            print("placeList is nil")
+        }
+        else {
+            print("placeList has something in it!")
+        }
+        //self.placeModel.add(newPlace) // add place to the PlaceModel
+        // One idea is to make a segue so after the long press the table view is opened up.
     }
     
     // Reuse annotation pins whenever possible

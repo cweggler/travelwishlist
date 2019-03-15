@@ -49,6 +49,7 @@
                     <tabBarItem key="tabBarItem" title="Map" image="icons8-world-map-50" id="DON-71-pTA"/>
                     <connections>
                         <outlet property="mapView" destination="luI-uF-jsW" id="nQF-VW-5U2"/>
+                        <segue destination="sBo-6i-iW2" kind="show" identifier="showTable" id="m2f-yy-ROP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LX-ZX-NZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -79,4 +80,7 @@
         <image name="icons8-features-list-filled-50" width="30" height="30"/>
         <image name="icons8-world-map-50" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="m2f-yy-ROP"/>
+    </inferredMetricsTieBreakers>
 </document>

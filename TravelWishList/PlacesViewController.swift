@@ -9,7 +9,12 @@
 import UIKit
 
 class PlacesViewController: UITableViewController {
+    var placeList: PlaceList!
     
-    //var placeModel: PlaceList!
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return placeList.allPlaces.count
+    }
+    
+    // add code for dequeable cells
     
 }
