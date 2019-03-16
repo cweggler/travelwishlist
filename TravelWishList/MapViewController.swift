@@ -9,10 +9,12 @@
 import UIKit
 import MapKit
 
-class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     let geoCoder = CLGeocoder()
-    var placeList: PlaceList!
+    var placeModel: PlaceList!
+    var newPlace: Place!
+    // create a place variable so the long gesture can implement this
     
     @IBOutlet var mapView: MKMapView!
     
@@ -53,16 +55,15 @@ class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMap
         let _: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeList.count()
-    }
-    
     @objc func buttonClicked(sender: UIButton){
         // update the PlacesList with the Place information would be cool
-        //placeModel.add(newPlace)
+        
+        self.placeModel.add(newPlace)
+        print(newPlace.name)
     }
     
     // function called when gesture recognizer detects a longer press
+    
     @objc func mapPressLonger(_ recognizer: UIGestureRecognizer) {
         print("activated gesture recognizer for long press")
         
@@ -86,15 +87,16 @@ class MapViewController: UITableViewController, CLLocationManagerDelegate, MKMap
             placeName = self.reverseGeoCodeComplete(location: placeMark)
             }
         })
-            let newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
+        newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
        
-        print(newPlace)
-        if self.placeList == nil {
-            print("placeList is nil")
-        }
-        else {
-            print("placeList has something in it!")
-        }
+        
+//        print(newPlace)
+//        if self.placeList == nil {
+//            print("placeList is nil")
+//        }
+//        else {
+//            print("placeList has something in it!")
+//        }
         //self.placeModel.add(newPlace) // add place to the PlaceModel
         // One idea is to make a segue so after the long press the table view is opened up.
     }
