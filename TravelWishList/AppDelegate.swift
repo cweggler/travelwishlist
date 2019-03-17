@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let placeList = PlaceList()
-        let mapViewController = window?.rootViewController as? MapViewController
-        mapViewController?.placeModel = placeList
+//        let placeList = PlaceList()
+//        let place = Place()
+//        let mapViewController = window?.rootViewController as? MapViewController
+//        mapViewController?.placeModel = placeList
+//        mapViewController?.newPlace = place
         return true
     }
 

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Places-->
+        <!--PlacesViewController-->
         <scene sceneID="Qp9-HN-tmJ">
             <objects>
-                <tableViewController id="sBo-6i-iW2" customClass="PlacesViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="PlacesViewController" id="sBo-6i-iW2" customClass="PlacesViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y2Z-00-exY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="957.57121439280365"/>
         </scene>
-        <!--Map-->
+        <!--MapViewController-->
         <scene sceneID="uGP-1T-jwZ">
             <objects>
-                <viewController id="Q1p-b5-i7N" customClass="MapViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MapViewController" id="Q1p-b5-i7N" customClass="MapViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="luI-uF-jsW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -111,6 +111,6 @@
         <image name="icons8-world-map-50" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m2f-yy-ROP"/>
+        <segue reference="5rs-CS-XW1"/>
     </inferredMetricsTieBreakers>
 </document>

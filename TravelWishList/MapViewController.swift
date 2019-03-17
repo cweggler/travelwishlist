@@ -12,9 +12,9 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     let geoCoder = CLGeocoder()
-    var placeModel: PlaceList!
-    var newPlace: Place!
-    // create a place variable so the long gesture can implement this
+    var placeModel = PlaceList()
+    var newPlace = Place() // create a place variable so the long gesture can implement this
+    
     
     @IBOutlet var mapView: MKMapView!
     
@@ -58,8 +58,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @objc func buttonClicked(sender: UIButton){
         // update the PlacesList with the Place information would be cool
         
-        self.placeModel.add(newPlace)
-        print(newPlace.name)
+        placeModel.add(newPlace)
+        print("I am clicked")
+        print(self.newPlace.name)
     }
     
     // function called when gesture recognizer detects a longer press
@@ -77,7 +78,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.addAnnotation(annotation)
         
         // reverse Geocode and create a Place object
-        var placeName = String() // This is not getting changed in geoCoder, is there an error? 
+        var placeName = String() 
         let placeLat = placeTouchedCoordinate.latitude
         let placeLong = placeTouchedCoordinate.longitude
         let location: CLLocation = CLLocation(latitude: placeLat, longitude: placeLong)
@@ -85,19 +86,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         geoCoder.reverseGeocodeLocation(location, completionHandler: {(placeMarks: [CLPlacemark]?, error: Error?) in if error == nil {
                 let placeMark = placeMarks![0]
             placeName = self.reverseGeoCodeComplete(location: placeMark)
+            self.newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
+            print(self.newPlace.name)
             }
         })
-        newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
-       
         
-//        print(newPlace)
-//        if self.placeList == nil {
-//            print("placeList is nil")
-//        }
-//        else {
-//            print("placeList has something in it!")
-//        }
-        //self.placeModel.add(newPlace) // add place to the PlaceModel
         // One idea is to make a segue so after the long press the table view is opened up.
     }
     

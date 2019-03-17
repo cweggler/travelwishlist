@@ -9,7 +9,7 @@
 import UIKit
 
 class PlacesViewController: UITableViewController {
-    var placeModel: PlaceList! //injects the placelist into this controller
+    var placeModel = PlaceList()
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return placeModel.allPlaces.count //crashes right here because it saws there is nil when unwrapped
@@ -36,6 +36,5 @@ class PlacesViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assert(placeModel != nil, "placeModel should be set first")
     }
 }

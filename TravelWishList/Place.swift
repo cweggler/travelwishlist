@@ -24,5 +24,14 @@ class Place: NSObject {
         
         super.init()
     }
+    
+    convenience override init() {
+        let mName = ""
+        let mHasVisited = false
+        let mLatitude = 0.0
+        let mLongitude = 0.0
+        
+        self.init(name: mName, hasVisited: mHasVisited, latitude: mLatitude, longitude: mLongitude)
+    }
 }
 
