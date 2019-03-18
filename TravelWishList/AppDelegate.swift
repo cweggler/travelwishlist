@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         map.placeModel = placeList
         table.placeModel = placeList
+        table.map = map
+        map.table = table
+        
+        
+        
         
         return true
     }

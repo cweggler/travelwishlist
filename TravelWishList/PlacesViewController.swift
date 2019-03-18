@@ -10,6 +10,8 @@ import UIKit
 
 class PlacesViewController: UITableViewController {
     var placeModel: PlaceList!
+    var map: MapViewController!
+   
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section0Label = UILabel()
@@ -36,6 +38,7 @@ class PlacesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
+            //maybe add some color to the cells in each section?
             return placeModel.notVisitedCount()
         }
         else {
@@ -52,19 +55,68 @@ class PlacesViewController: UITableViewController {
        let place = placeModel.allPlaces[indexPath.row]
     
         // configure the cell with the Place
+        //maybe add some color to the cells in each section?
         cell.nameLabel.text = place.name
         if place.hasVisited == true {
             cell.visitedLabel.text = "Visited"
         } else {
             cell.visitedLabel.text = "Not Visited"
         }
-        
-        cell.textLabel?.text = "Section:\(indexPath.section) Row:\(indexPath.row)"
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // This code is for what happens when a user wants to delete a Place
+        let place = self.placeModel.allPlaces[indexPath.row]
+        if editingStyle == .delete {
+            
+            let title = "Delete \(place.name)?"
+            let message = "Are you sure you want to delete this item?"
+            
+            let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive,
+                                             handler: { (action) -> Void in
+                                                
+            let annotationToRemove = self.map.annotationList.remove(at: indexPath.row)
+            // Remove the place from the model
+            self.placeModel.removePlace(place)
+            
+            //Also remove that row from the table view with an animation
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            //Also remove that annotation from MapView
+            if let annotation = self.map.annotationDict.removeValue(forKey: annotationToRemove){
+                self.map.mapView.removeAnnotation(annotation)
+            }
+            
+        })
+            ac.addAction(deleteAction)
+            // Present the alert controller
+            present(ac, animated: true, completion: nil)
+            
+       }
+            
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get the height of the status bar
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 65
     }
 }

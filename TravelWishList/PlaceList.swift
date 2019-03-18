@@ -11,7 +11,7 @@ import UIKit
 class PlaceList {
     var allPlaces = [Place]()
     
-    func add(_ place: Place) -> Int {
+    @discardableResult func add(_ place: Place) -> Int {
         allPlaces.append(place)
         return allPlaces.endIndex - 1
     }
@@ -45,6 +45,12 @@ class PlaceList {
             }
         }
         return count
+    }
+    
+    func removePlace(_ place: Place){
+        if let index = allPlaces.index(of: place){
+            allPlaces.remove(at: index)
+        }
     }
     
     

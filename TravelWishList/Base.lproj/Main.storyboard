@@ -26,15 +26,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-8z-ewh">
-                                            <rect key="frame" x="16" y="10.5" width="200" height="22.5"/>
+                                            <rect key="frame" x="16" y="11" width="200" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3Q-9Y-371">
-                                            <rect key="frame" x="275" y="10.5" width="92" height="22.5"/>
+                                            <rect key="frame" x="275" y="11" width="92" height="23"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="92" id="f96-Ps-5El"/>
+                                                <constraint firstAttribute="width" constant="92" id="4ik-Tf-MEs"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -42,13 +42,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Q3Q-9Y-371" firstAttribute="centerY" secondItem="XLr-sE-9Wg" secondAttribute="centerY" id="BjV-nO-ecP"/>
-                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="leading" secondItem="XLr-sE-9Wg" secondAttribute="leadingMargin" id="COt-hL-987"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Q3Q-9Y-371" secondAttribute="trailing" constant="-8" id="IxM-JA-UDL"/>
-                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="centerY" secondItem="XLr-sE-9Wg" secondAttribute="centerY" id="SmR-ci-poq"/>
-                                        <constraint firstItem="Q3Q-9Y-371" firstAttribute="leading" secondItem="aDZ-8z-ewh" secondAttribute="trailing" constant="59" id="cai-tp-kkh"/>
-                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="bottom" secondItem="XLr-sE-9Wg" secondAttribute="bottomMargin" id="j5O-qe-GM7"/>
-                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="baseline" secondItem="Q3Q-9Y-371" secondAttribute="baseline" id="jaw-nK-lLV"/>
+                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="leading" secondItem="XLr-sE-9Wg" secondAttribute="leadingMargin" id="2AA-oN-G2G"/>
+                                        <constraint firstItem="Q3Q-9Y-371" firstAttribute="leading" secondItem="aDZ-8z-ewh" secondAttribute="trailing" constant="59" id="2o5-IS-Tz3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Q3Q-9Y-371" secondAttribute="trailing" constant="-8" id="Dqm-Fq-ObE"/>
+                                        <constraint firstItem="Q3Q-9Y-371" firstAttribute="baseline" secondItem="aDZ-8z-ewh" secondAttribute="baseline" id="mNu-17-u2x"/>
+                                        <constraint firstItem="Q3Q-9Y-371" firstAttribute="firstBaseline" secondItem="aDZ-8z-ewh" secondAttribute="firstBaseline" id="rBo-qn-ccf"/>
+                                        <constraint firstItem="aDZ-8z-ewh" firstAttribute="top" secondItem="XLr-sE-9Wg" secondAttribute="topMargin" id="uvi-qP-eks"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aDZ-8z-ewh" secondAttribute="bottom" constant="-1" id="zaS-IB-UP7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
