@@ -5,7 +5,6 @@
 //  Created by Cara on 3/2/19.
 //  Copyright © 2019 Cara. All rights reserved.
 //
-
 import UIKit
 import MapKit
 
@@ -25,7 +24,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var button: UIButton!
-   
+    
     override func loadView() {
         // set a MKMapView programmatically
         mapView = MKMapView()
@@ -34,7 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         view = mapView
         
         // add a button programmatically
-       button = UIButton(type: .roundedRect)
+        button = UIButton(type: .roundedRect)
         
         let buttonX = 30
         let buttonY = 80
@@ -62,14 +61,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let _: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        //checkAnnotations()
-        
-        
-    }
-    
     @objc func buttonClicked(sender: UIButton){
         // update the PlacesList with the Place information
         placeModel.add(newPlace)
@@ -84,43 +75,43 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @objc func mapPressLonger(_ recognizer: UIGestureRecognizer) {
         print("activated gesture recognizer for long press")
         
-//        //Check if the button was clicked if not, remove the previous annotation
-//        if button.isSelected == false && annotationList.isEmpty != true {
-//                self.mapView.removeAnnotation(annotationList[annotationList.count-1]) //get the previous annotation
-//                annotationList.removeLast()
-//                print("Removed previous annotation")
-//        }
+        //        //Check if the button was clicked if not, remove the previous annotation
+        //        if button.isSelected == false && annotationList.isEmpty != true {
+        //                self.mapView.removeAnnotation(annotationList[annotationList.count-1]) //get the previous annotation
+        //                annotationList.removeLast()
+        //                print("Removed previous annotation")
+        //        }
         // add the location on the view that was touched
         let placeTouched = recognizer.location(in: self.mapView)
         // get the coordinates of the place that was touched
         let placeTouchedCoordinate: CLLocationCoordinate2D = mapView.convert(placeTouched, toCoordinateFrom: self.mapView)
         
         //if(self.mapView.annotations.count != placeModel.count()) {
-            //Remove the annotation before adding a new one
-            //[self.mapView removeAnnotation:[self.mapView.annotations objectAtIndex:0]]; }
+        //Remove the annotation before adding a new one
+        //[self.mapView removeAnnotation:[self.mapView.annotations objectAtIndex:0]]; }
         //}
         
         // create an annotation and its coordinate
         let annotation = MKPointAnnotation()
         annotation.coordinate = placeTouchedCoordinate
         
-       
+        
         // reverse Geocode and create a Place object
-        var placeName = String() 
+        var placeName = String()
         let placeLat = placeTouchedCoordinate.latitude
         let placeLong = placeTouchedCoordinate.longitude
         let location: CLLocation = CLLocation(latitude: placeLat, longitude: placeLong)
         
         geoCoder.reverseGeocodeLocation(location, completionHandler: {(placeMarks: [CLPlacemark]?, error: Error?) in if error == nil {
-                let placeMark = placeMarks![0]
-             //Want to keep a tidy record of the Annotations in case they need to be removed later
+            let placeMark = placeMarks![0]
+            //Want to keep a tidy record of the Annotations in case they need to be removed later
             annotation.title = placeMark.name
             
-//            if  let streetNumber = placeMark.subThoroughfare,
-//                let city = placeMark.locality,
-//                let state = placeMark.administrativeArea {
-//                annotation.subtitle = "\(streetNumber) \(city) \(state)"
-//            }
+            //            if  let streetNumber = placeMark.subThoroughfare,
+            //                let city = placeMark.locality,
+            //                let state = placeMark.administrativeArea {
+            //                annotation.subtitle = "\(streetNumber) \(city) \(state)"
+            //            }
             
             self.mapView.addAnnotation(annotation)
             self.annotationList.append(annotation.title!)
@@ -157,17 +148,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         return pinAnnotation
     }
     
-//    func reverseGeoCodeComplete(location: CLPlacemark) -> String {
-//        var locationString: String = ""
-//        if location.name != nil {
-//            locationString = "\(location.name!)"
-//        }
-//        return locationString
-//    }
+    //    func reverseGeoCodeComplete(location: CLPlacemark) -> String {
+    //        var locationString: String = ""
+    //        if location.name != nil {
+    //            locationString = "\(location.name!)"
+    //        }
+    //        return locationString
+    //    }
     
-    func checkAnnotations() {
-         if(annotationList.count != placeModel.count()) {
-            //remove annotation associated
-        }
-    }
+    
 }
