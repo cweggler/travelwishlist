@@ -9,10 +9,38 @@
 import UIKit
 
 class PlacesViewController: UITableViewController {
-    var placeModel = PlaceList()
+    var placeModel: PlaceList!
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let section0Label = UILabel()
+        let section1Label = UILabel()
+        
+        section0Label.text = "Not Visited Yet"
+        section0Label.backgroundColor = UIColor.red
+        
+        section1Label.text = "Visited"
+        section1Label.backgroundColor = UIColor.purple
+        
+        if section == 0 {
+            return section0Label
+        } else {
+            return section1Label
+        }
+        
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeModel.allPlaces.count //crashes right here because it saws there is nil when unwrapped
+        
+        if section == 0 {
+            return placeModel.notVisitedCount()
+        }
+        else {
+            return placeModel.visitedCount()
+        }
     }
     
     // add code for dequeable cells
@@ -30,6 +58,8 @@ class PlacesViewController: UITableViewController {
         } else {
             cell.visitedLabel.text = "Not Visited"
         }
+        
+        cell.textLabel?.text = "Section:\(indexPath.section) Row:\(indexPath.row)"
         
         return cell
     }

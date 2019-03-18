@@ -16,11 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let placeList = PlaceList()
-//        let place = Place()
-//        let mapViewController = window?.rootViewController as? MapViewController
-//        mapViewController?.placeModel = placeList
-//        mapViewController?.newPlace = place
+        let placeList = PlaceList()
+        let tabController = window?.rootViewController as? UITabBarController
+        
+        let tabbedViewControllers = tabController?.viewControllers
+        
+        let map: MapViewController = tabbedViewControllers![0] as! MapViewController
+        let table: PlacesViewController = tabbedViewControllers![1] as! PlacesViewController
+        
+        map.placeModel = placeList
+        table.placeModel = placeList
+        
         return true
     }
 

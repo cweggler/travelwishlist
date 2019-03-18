@@ -26,4 +26,26 @@ class PlaceList {
     func count() -> Int {
         return allPlaces.count
     }
+    
+    func notVisitedCount() -> Int {
+        var count = 0
+        for i in allPlaces {
+            if (i.hasVisited == false) {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    func visitedCount() -> Int {
+        var count = 0
+        for i in allPlaces {
+            if(i.hasVisited == true) {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    
 }

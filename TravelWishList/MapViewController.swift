@@ -12,7 +12,7 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     let locationManager = CLLocationManager()
     let geoCoder = CLGeocoder()
-    var placeModel = PlaceList()
+    var placeModel: PlaceList!
     var newPlace = Place() // create a place variable so the long gesture can implement this
     
     
