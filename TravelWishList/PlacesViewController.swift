@@ -59,8 +59,10 @@ class PlacesViewController: UITableViewController {
         cell.nameLabel.text = place.name
         if place.hasVisited == true {
             cell.visitedLabel.text = "Visited"
+            cell.backgroundColor = #colorLiteral(red: 0.7707305573, green: 0.5190045732, blue: 1, alpha: 1)
         } else {
             cell.visitedLabel.text = "Not Visited"
+            cell.backgroundColor = #colorLiteral(red: 1, green: 0.6499565972, blue: 0.6557906539, alpha: 1)
         }
         return cell
     }
@@ -105,11 +107,31 @@ class PlacesViewController: UITableViewController {
     
     // add a leading swipe button to change a place from NotVisited to Visited
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let visited = UIContextualAction(style: .normal, title: "Visited?") { (action, view, nil) in
-            print("Change to visited or not visited")
+        if indexPath.section == 0 {
+            let visited = UIContextualAction(style: .normal, title: "Visited?") { (action, view, nil) in
+                let mPlace = self.placeModel.getPlace(at: indexPath.row)! // get the place
+                mPlace.hasVisited = !mPlace.hasVisited
+                print(mPlace.hasVisited)
+                print("Change to visited")
+                 tableView.reloadData()
+                
+            }
+            visited.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+            return UISwipeActionsConfiguration(actions: [visited])
         }
-        return UISwipeActionsConfiguration(actions: [visited])
+        else {
+            let notVisited = UIContextualAction(style: .normal, title: "Not Visited?") { (action, view, nil) in
+                let mPlace = self.placeModel.getPlace(at: indexPath.row)!
+                mPlace.hasVisited = !mPlace.hasVisited
+                print(mPlace.hasVisited)
+                print("Change to not visited")
+                 tableView.reloadData()
+            }
+            notVisited.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+            return UISwipeActionsConfiguration(actions: [notVisited])
+        }
     }
+        
     
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Remove"
