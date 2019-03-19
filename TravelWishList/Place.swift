@@ -9,13 +9,13 @@
 import UIKit
 import MapKit
 
-class Place: NSObject {
-    var name: String
-    var hasVisited: Bool
-    var latitude: CLLocationDegrees
-    var longitude: CLLocationDegrees
-    // info about a place's location from CLLocationCoordinate2D for example
-    
+class Place: NSObject { // If more time, may have wanted to make this extend the MKAnnotation protocol too
+    var name: String                // Place's name
+    var hasVisited: Bool            // T or F if Visited
+    var latitude: CLLocationDegrees // latitude coordinates
+    var longitude: CLLocationDegrees// longitude coordinates
+  
+    // designated initializer
     init(name: String, hasVisited: Bool, latitude: CLLocationDegrees, longitude: CLLocationDegrees){
         self.name = name
         self.hasVisited = hasVisited
@@ -25,6 +25,7 @@ class Place: NSObject {
         super.init()
     }
     
+    // convenience initializer
     convenience override init() {
         let mName = ""
         let mHasVisited = false
@@ -34,4 +35,3 @@ class Place: NSObject {
         self.init(name: mName, hasVisited: mHasVisited, latitude: mLatitude, longitude: mLongitude)
     }
 }
-
