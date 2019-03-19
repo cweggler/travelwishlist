@@ -16,21 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // create a shared PlaceList
         let placeList = PlaceList()
+        
+        // the Tab Bar Controller is the rootview or Parent View
         let tabController = window?.rootViewController as? UITabBarController
         
+        // Both MapViewController and PlacesViewController are children of the UITabBarController
         let tabbedViewControllers = tabController?.viewControllers
         
         let map: MapViewController = tabbedViewControllers![0] as! MapViewController
         let table: PlacesViewController = tabbedViewControllers![1] as! PlacesViewController
         
+        // links up the variables in the children ViewControllers
         map.placeModel = placeList
         table.placeModel = placeList
         table.map = map
         map.table = table
-        
-        
-        
         
         return true
     }
