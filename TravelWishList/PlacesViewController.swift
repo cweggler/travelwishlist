@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
 class PlacesViewController: UITableViewController {
+    // Dependency Injections
     var placeModel: PlaceList!
     var map: MapViewController!
    
     
+    // This function sets the header for each section and divides it between Visited and Not visited
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let section0Label = UILabel()
         let section1Label = UILabel()
@@ -31,10 +34,12 @@ class PlacesViewController: UITableViewController {
         
     }
     
+    // This function determines the total number of sections which is two
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
+    // this determines what rows are in what section using the PlaceList's built in methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
@@ -46,7 +51,7 @@ class PlacesViewController: UITableViewController {
         }
     }
     
-    // add code for dequeable cells
+    // This function adds code for dequeable cells and distinguishes the different sections' cells by color
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get a new or recycled cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath) as! PlaceCell
@@ -67,15 +72,17 @@ class PlacesViewController: UITableViewController {
         return cell
     }
     
-    // add the editingStyle to allow for the Delete button
+    // This adds the editingStyle to allow for the Delete button
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // This code is for what happens when a user wants to delete a Place
         let place = self.placeModel.allPlaces[indexPath.row]
         if editingStyle == .delete {
             
+            
             let title = "Delete \(place.name)?"
             let message = "Are you sure you want to delete this item?"
             
+            // sets up a second confirmation to make sure user is sure they want to delete
             let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -85,13 +92,14 @@ class PlacesViewController: UITableViewController {
                                              handler: { (action) -> Void in
                                                 
             let annotationToRemove = self.map.annotationList.remove(at: indexPath.row)
-            // Remove the place from the model
+                                                
+            // Removes the place from the model
             self.placeModel.removePlace(place)
             
-            //Also remove that row from the table view with an animation
+            //Removes that row from the table view with an animation
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
-            //Also remove that annotation from MapView
+            //Removes that annotation from MapView
             if let annotation = self.map.annotationDict.removeValue(forKey: annotationToRemove){
                 self.map.mapView.removeAnnotation(annotation)
             }
@@ -105,14 +113,16 @@ class PlacesViewController: UITableViewController {
             
     }
     
-    // add a leading swipe button to change a place from NotVisited to Visited
+    // adds a leading swipe button to change a place from NotVisited to Visited or vice versa
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // checks if the row is in the Not Visited section to change the button text
         if indexPath.section == 0 {
             let visited = UIContextualAction(style: .normal, title: "Visited?") { (action, view, nil) in
                 let mPlace = self.placeModel.getPlace(at: indexPath.row)! // get the place
                 mPlace.hasVisited = !mPlace.hasVisited
                 print(mPlace.hasVisited)
-                print("Change to visited")
+                print("Change to visited") // here for debugging purposes
                  tableView.reloadData()
                 
             }
@@ -124,7 +134,7 @@ class PlacesViewController: UITableViewController {
                 let mPlace = self.placeModel.getPlace(at: indexPath.row)!
                 mPlace.hasVisited = !mPlace.hasVisited
                 print(mPlace.hasVisited)
-                print("Change to not visited")
+                print("Change to not visited") // here for debugging purposes
                  tableView.reloadData()
             }
             notVisited.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
@@ -132,12 +142,18 @@ class PlacesViewController: UITableViewController {
         }
     }
         
-    
+    // Changes the name of the button to "Remove" for deletion.
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Remove"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    // important function for the life cycle of the app going back and forth
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 }
