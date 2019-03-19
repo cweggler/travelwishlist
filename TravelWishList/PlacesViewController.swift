@@ -13,6 +13,7 @@ class PlacesViewController: UITableViewController {
     // Dependency Injections
     var placeModel: PlaceList!
     var map: MapViewController!
+    
    
     
     // This function sets the header for each section and divides it between Visited and Not visited
@@ -112,6 +113,14 @@ class PlacesViewController: UITableViewController {
        }
             
     }
+    
+    // add this eventually to determine the row
+//    override func tableView(_: UITableView, didSelectRowAt: IndexPath){
+//        // get the data on the row
+//        // ask Parent to open the MapViewController
+//        // this line didn't work
+//        tabBarController?.selectedViewController?.present(map, animated: true, completion: nil)
+//    }
     
     // adds a leading swipe button to change a place from NotVisited to Visited or vice versa
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
