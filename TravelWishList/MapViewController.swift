@@ -25,10 +25,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBOutlet var button: UIButton! // this button gets a global variable here
     
     override func loadView() {
-        // set a MKMapView programmatically
-        mapView = MKMapView()
-        
-        // set it as *the* view for this view controller
+        // set the MKMapView as *the* view for this view controller
         view = mapView
         
         // adds a button programmatically
@@ -64,6 +61,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // this is important for the life cycle in going back and forth between views
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
     }
     
     // this is the action function when the Add Place? button is clicked

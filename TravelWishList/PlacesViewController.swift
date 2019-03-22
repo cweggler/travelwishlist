@@ -17,40 +17,42 @@ class PlacesViewController: UITableViewController {
     
    
     
-    // This function sets the header for each section and divides it between Visited and Not visited
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let section0Label = UILabel()
-        let section1Label = UILabel()
-        
-        section0Label.text = "Not Visited Yet"
-        section0Label.backgroundColor = UIColor.red
-        
-        section1Label.text = "Visited"
-        section1Label.backgroundColor = UIColor.purple
-        
-        if section == 0 {
-            return section0Label
-        } else {
-            return section1Label
-        }
-        
-    }
+//    // This function sets the header for each section and divides it between Visited and Not visited
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let section0Label = UILabel()
+//        let section1Label = UILabel()
+//
+//        section0Label.text = "Not Visited Yet"
+//        section0Label.backgroundColor = UIColor.red
+//
+//        section1Label.text = "Visited"
+//        section1Label.backgroundColor = UIColor.purple
+//
+//        if section == 0 {
+//            return section0Label
+//        } else {
+//            return section1Label
+//        }
+//
+//    }
     
     // This function determines the total number of sections which is two
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1 //really 2
     }
     
     // this determines what rows are in what section using the PlaceList's built in methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-            //maybe add some color to the cells in each section?
-            return placeModel.notVisitedCount()
-        }
-        else {
-            return placeModel.visitedCount()
-        }
+//        if section == 0 {
+//            //maybe add some color to the cells in each section?
+//            return placeModel.notVisitedCount()
+//        }
+//        else {
+//            return placeModel.visitedCount()
+//        }
+        
+        return placeModel.count()
     }
     
     // This function adds code for dequeable cells and distinguishes the different sections' cells by color
@@ -115,20 +117,21 @@ class PlacesViewController: UITableViewController {
             
     }
     
-    // add this eventually to determine the row
+   //  add this eventually to determine the row
     override func tableView(_: UITableView, didSelectRowAt: IndexPath){
         // get the data on the row
         // ask Parent to open the MapViewController
-    
+        
         tabBarController?.selectedViewController = map
-        // then zero in on the map
+        
+        // To zero in on the map
         // you need to get the lat and long of the place
         let place_lat = placeModel.getPlace(at: didSelectRowAt.row)!.latitude
         let place_long = placeModel.getPlace(at: didSelectRowAt.row)!.longitude
         let center = CLLocation(latitude: place_lat, longitude: place_long)
         
         // Distance in meters from the center
-        let radiusFromCenter: CLLocationDistance = 50000
+        let radiusFromCenter: CLLocationDistance = 25000
         
         // create region for the zoom level
         let mapRegion = MKCoordinateRegion(center: center.coordinate, latitudinalMeters: radiusFromCenter, longitudinalMeters: radiusFromCenter)
@@ -181,5 +184,9 @@ class PlacesViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    func zoomIn(location: CLLocation){
+        
     }
 }
