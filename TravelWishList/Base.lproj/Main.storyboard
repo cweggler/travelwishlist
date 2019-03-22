@@ -12,7 +12,7 @@
         <!--PlacesViewController-->
         <scene sceneID="Qp9-HN-tmJ">
             <objects>
-                <tableViewController title="PlacesViewController" id="sBo-6i-iW2" customClass="PlacesViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PlacesViewController" title="PlacesViewController" id="sBo-6i-iW2" customClass="PlacesViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y2Z-00-exY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,7 @@
         <!--MapViewController-->
         <scene sceneID="uGP-1T-jwZ">
             <objects>
-                <viewController title="MapViewController" id="Q1p-b5-i7N" customClass="MapViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" title="MapViewController" id="Q1p-b5-i7N" customClass="MapViewController" customModule="TravelWishList" customModuleProvider="target" sceneMemberID="viewController">
                     <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="luI-uF-jsW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

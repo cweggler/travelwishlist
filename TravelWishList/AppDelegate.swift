@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // create a shared PlaceList
         let placeList = PlaceList()
+        let mapView = MKMapView()
         
         // the Tab Bar Controller is the rootview or Parent View
         let tabController = window?.rootViewController as? UITabBarController
@@ -33,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         table.placeModel = placeList
         table.map = map
         map.table = table
+        map.mapView = mapView
+        table.mapView = mapView
+        
         
         return true
     }

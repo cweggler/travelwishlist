@@ -13,6 +13,7 @@ class PlacesViewController: UITableViewController {
     // Dependency Injections
     var placeModel: PlaceList!
     var map: MapViewController!
+    var mapView: MKMapView!
     
    
     
@@ -115,12 +116,28 @@ class PlacesViewController: UITableViewController {
     }
     
     // add this eventually to determine the row
-//    override func tableView(_: UITableView, didSelectRowAt: IndexPath){
-//        // get the data on the row
-//        // ask Parent to open the MapViewController
-//        // this line didn't work
-//        tabBarController?.selectedViewController?.present(map, animated: true, completion: nil)
-//    }
+    override func tableView(_: UITableView, didSelectRowAt: IndexPath){
+        // get the data on the row
+        // ask Parent to open the MapViewController
+    
+        tabBarController?.selectedViewController = map
+        // then zero in on the map
+        // you need to get the lat and long of the place
+        let place_lat = placeModel.getPlace(at: didSelectRowAt.row)!.latitude
+        let place_long = placeModel.getPlace(at: didSelectRowAt.row)!.longitude
+        let center = CLLocation(latitude: place_lat, longitude: place_long)
+        
+        // Distance in meters from the center
+        let radiusFromCenter: CLLocationDistance = 50000
+        
+        // create region for the zoom level
+        let mapRegion = MKCoordinateRegion(center: center.coordinate, latitudinalMeters: radiusFromCenter, longitudinalMeters: radiusFromCenter)
+        
+        // set the map
+        mapView.setRegion(mapRegion, animated: true)
+        
+       
+    }
     
     // adds a leading swipe button to change a place from NotVisited to Visited or vice versa
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

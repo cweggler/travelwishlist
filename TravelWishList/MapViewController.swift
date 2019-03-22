@@ -138,7 +138,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 placeName = " "
             }
             // Create a Place Object
-            self.newPlace = Place(name: placeName, hasVisited: false, latitude: placeLong, longitude: placeLong)
+            self.newPlace = Place(name: placeName, hasVisited: false, latitude: placeLat, longitude: placeLong)
             
             // Code here for debugging purposes
             print(self.newPlace.name)
