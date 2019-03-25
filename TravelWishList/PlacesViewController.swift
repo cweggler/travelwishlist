@@ -146,10 +146,17 @@ class PlacesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         // checks if the row is in the Not Visited section to change the button text
-        if indexPath.section == 0 {
+        //if indexPath.section == 0
+        if self.placeModel.getPlace(at: indexPath.row)!.hasVisited == false {
             let visited = UIContextualAction(style: .normal, title: "Visited?") { (action, view, nil) in
                 let mPlace = self.placeModel.getPlace(at: indexPath.row)! // get the place
                 mPlace.hasVisited = !mPlace.hasVisited
+                
+                //change the color of the annotation
+                let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: mPlace.latitude, longitude: mPlace.longitude)
+                let annotationRef = MKPinAnnotationView()
+                annotationRef.pinTintColor = .purple
+                
                 print(mPlace.hasVisited)
                 print("Change to visited") // here for debugging purposes
                  tableView.reloadData()

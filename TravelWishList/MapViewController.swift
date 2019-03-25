@@ -121,7 +121,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             if placeMark.locality != nil {city = placeMark.locality!}
             if placeMark.administrativeArea != nil {state = placeMark.administrativeArea!}
             annotation.subtitle = "\(streetNumber) \(city) \(state)"
-        
             
             // add the annotation to view
             self.mapView.addAnnotation(annotation)
@@ -151,15 +150,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         guard annotation is MKPointAnnotation else { return nil }
         
         let identifier = "pin"
-        var pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var pinAnnotation = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+    
         
         if pinAnnotation == nil {
             pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             pinAnnotation!.canShowCallout = true
             
+            //test the color change
+            // this works
+            //            pinAnnotation?.pinTintColor = .blue
+            
+            // how do you tie back to check the place's hasVisited attribute
+            
+            
         } else {
             pinAnnotation!.annotation = annotation
         }
+        
         return pinAnnotation
     }
     
